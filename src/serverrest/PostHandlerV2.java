@@ -64,14 +64,14 @@ public class PostHandlerV2 implements HttpHandler {
             }
             
             // Esegue il calcolo
-            double risultato = CalcolatriceService.calcola(
+            double risultato = CalcolatriceServiceV2.calcola(
                 request.getOperando1(),
                 request.getOperando2(),
                 request.getOperatore()
             );
             
             // Crea l'oggetto risposta
-            OperazioneResponse response = new OperazioneResponse(
+            OperazioneResponseV2 response = new OperazioneResponseV2(
                 request.getOperando1(),
                 request.getOperando2(),
                 request.getOperatore(),
