@@ -104,9 +104,9 @@ public class PostHandlerV1 implements HttpHandler {
         byte[] bytes = jsonRisposta.getBytes(StandardCharsets.UTF_8);
         exchange.sendResponseHeaders(codice, bytes.length);
         
-        OutputStream os = exchange.getResponseBody();
-        os.write(bytes);
-        os.close();
+        try (OutputStream os = exchange.getResponseBody()) {
+            os.write(bytes);
+        }
     }
     
     /**

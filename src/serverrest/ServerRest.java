@@ -37,6 +37,14 @@ public class ServerRest {
             server.createContext("/api/calcola/post", new PostHandlerV1());
             server.createContext("/api/calcola/get", new GetHandlerV1());
             
+            // V1
+            server.createContext("/api/v1/calcola/post", new PostHandlerV1());
+            server.createContext("/api/v1/calcola/get", new GetHandlerV1());
+            
+            // V2
+            server.createContext("/api/v2/calcola/post", new PostHandlerV2());
+            server.createContext("/api/v2/calcola/get", new GetHandlerV2());
+            
             // Endpoint di benvenuto
             server.createContext("/", ServerRest::gestisciBenvenuto);
             
@@ -56,7 +64,7 @@ public class ServerRest {
             System.out.println("  - Info: http://localhost:" + porta + "/");
             System.out.println();
             System.out.println("Operatori supportati:");
-            System.out.println("  SOMMA, SOTTRAZIONE, MOLTIPLICAZIONE, DIVISIONE");
+            System.out.println("  SOMMA, SOTTRAZIONE, MOLTIPLICAZIONE, DIVISIONE, POTENZA, RADICE QUADRATA, MODULO");
             System.out.println();
             System.out.println("Premi Ctrl+C per fermare il server");
             System.out.println("==============================================");
@@ -91,6 +99,9 @@ public class ServerRest {
         operatori.put("sottrazione", "SOTTRAZIONE o -");
         operatori.put("moltiplicazione", "MOLTIPLICAZIONE o * o X");
         operatori.put("divisione", "DIVISIONE o /");
+        operatori.put("potenza", "POTENZA o ^");
+        operatori.put("radice quadrata", "RADICE QUADRATA");
+        operatori.put("modulo", "MODULO o %");
         info.put("operatori_supportati", operatori);
         
         String jsonRisposta = gson.toJson(info);

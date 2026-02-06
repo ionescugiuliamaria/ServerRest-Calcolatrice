@@ -50,10 +50,21 @@ public class CalcolatriceServiceV2 {
                 }
                 return operando1 / operando2;
                 
+            case "POTENZA":
+            case "^":
+                return Math.pow(operando1, operando2);
+                
+            case "RADICE QUADRATA":
+                return Math.sqrt(operando1);
+                
+            case "MODULO":
+            case "%":
+                return operando1 % operando2;
+                
             default:
                 throw new IllegalArgumentException(
                     "Operatore non valido: " + operatore + 
-                    ". Operatori consentiti: SOMMA, SOTTRAZIONE, MOLTIPLICAZIONE, DIVISIONE"
+                    ". Operatori consentiti: SOMMA, SOTTRAZIONE, MOLTIPLICAZIONE, DIVISIONE, POTENZA, RADICE QUADRATA, MODULO"
                 );
         }
     }
