@@ -55,7 +55,7 @@ public class CalcolatriceServiceV2 {
                 return Math.pow(operando1, operando2);
                 
             case "RADICE QUADRATA":
-                return Math.sqrt(operando1);
+                return Math.pow(operando1, 1.0 / operando2);
                 
             case "MODULO":
             case "%":

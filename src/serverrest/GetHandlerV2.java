@@ -71,7 +71,8 @@ public class GetHandlerV2 implements HttpHandler {
             
             // GSON converte automaticamente l'oggetto Java in JSON
             String jsonRisposta = gson.toJson(response);
-            
+            exchange.getResponseHeaders().set("API-Version", "2.0");
+            exchange.getResponseHeaders().set("X-Request-ID", response.getRequest_id());
             inviaRisposta(exchange, 200, jsonRisposta);
             
         } catch (NumberFormatException e) {

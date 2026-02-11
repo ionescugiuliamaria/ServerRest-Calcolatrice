@@ -4,6 +4,10 @@
  */
 package serverrest;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.UUID;
+
 /**
  *
  * @author delfo
@@ -14,6 +18,9 @@ public class OperazioneResponseV2 {
     private String operatore;
     private double risultato;
     private String operazione;
+    private String timestamp;
+    private String versione_api;
+    private String request_id;
     
     // Costruttore vuoto necessario per GSON
     public OperazioneResponseV2() {
@@ -28,6 +35,10 @@ public class OperazioneResponseV2 {
         this.risultato = risultato;
         this.operazione = String.format("%.2f %s %.2f = %.2f", 
             operando1, operatore, operando2, risultato);
+        this.timestamp = LocalDateTime.now().format(
+                DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        this.versione_api = "2.0";
+        this.request_id = UUID.randomUUID().toString();
     }
     
     // Getter
@@ -50,6 +61,18 @@ public class OperazioneResponseV2 {
     public String getOperazione() {
         return operazione;
     }
+
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public String getVersione_api() {
+        return versione_api;
+    }
+
+    public String getRequest_id() {
+        return request_id;
+    }
     
     // Setter
     public void setOperando1(double operando1) {
@@ -71,4 +94,18 @@ public class OperazioneResponseV2 {
     public void setOperazione(String operazione) {
         this.operazione = operazione;
     }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public void setVersione_api(String versione_api) {
+        this.versione_api = versione_api;
+    }
+
+    public void setRequest_id(String request_id) {
+        this.request_id = request_id;
+    }
+    
+    
 }
