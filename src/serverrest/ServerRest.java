@@ -45,6 +45,10 @@ public class ServerRest {
             server.createContext("/api/v2/calcola/post", new PostHandlerV2());
             server.createContext("/api/v2/calcola/get", new GetHandlerV2());
             
+            // V3
+            server.createContext("/api/v3/converte/post", new PostHandlerV3());
+            server.createContext("/api/v3/converte/get", new GetHandlerV3());
+            
             // Endpoint di benvenuto
             server.createContext("/", ServerRest::gestisciBenvenuto);
             
