@@ -33,8 +33,8 @@ public class ConversioneResponse {
         this.unita2 = unita2;
         this.valore = valore;
         this.risultato = risultato;
-        this.operazione = String.format("%s %.2f = %s %.2f", 
-            unita1, valore, unita2, risultato);
+        this.operazione = String.format("%.2f %s = %.2f %s", 
+            valore, unita1, risultato, unita2);
         this.timestamp = LocalDateTime.now().format(
                 DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         this.versione_api = "3.0";

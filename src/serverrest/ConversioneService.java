@@ -36,9 +36,9 @@ public class ConversioneService {
         String u1 = unita1.toUpperCase().trim();
         String u2 = unita2.toUpperCase().trim();
         
-        if(u1.equals("METRO") && u1.equals("YARDO")){
+        if(u1.equals("METRO") && u2.equals("YARDO")){
             return valore * 1.09361;
-        }else if(u1.equals("YARDO") && u1.equals("METRO")){
+        }else if(u1.equals("YARDO") && u2.equals("METRO")){
             return valore * 0.9144;
         }else{
             throw new IllegalArgumentException(
