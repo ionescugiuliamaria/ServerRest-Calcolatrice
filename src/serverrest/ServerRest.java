@@ -65,10 +65,19 @@ public class ServerRest {
             System.out.println("Endpoint disponibili:");
             System.out.println("  - POST: http://localhost:" + porta + "/api/calcola/post");
             System.out.println("  - GET:  http://localhost:" + porta + "/api/calcola/get");
+            System.out.println("  - POST: http://localhost:" + porta + "/api/v1/calcola/post");
+            System.out.println("  - GET:  http://localhost:" + porta + "/api/v1/calcola/get");
+            System.out.println("  - POST: http://localhost:" + porta + "/api/v2/calcola/post");
+            System.out.println("  - GET:  http://localhost:" + porta + "/api/v2/calcola/get");
+            System.out.println("  - POST: http://localhost:" + porta + "/api/v3/calcola/post");
+            System.out.println("  - GET:  http://localhost:" + porta + "/api/v3/calcola/get");
             System.out.println("  - Info: http://localhost:" + porta + "/");
             System.out.println();
             System.out.println("Operatori supportati:");
             System.out.println("  SOMMA, SOTTRAZIONE, MOLTIPLICAZIONE, DIVISIONE, POTENZA, RADICE QUADRATA, MODULO");
+            System.out.println();
+            System.out.println("Unità supportati nella versione 3:");
+            System.out.println("METRO, YARDO");
             System.out.println();
             System.out.println("Premi Ctrl+C per fermare il server");
             System.out.println("==============================================");
@@ -96,6 +105,12 @@ public class ServerRest {
         Map endpoints = new HashMap<>();
         endpoints.put("POST", "/api/calcola/post");
         endpoints.put("GET", "/api/calcola/get?operando1=X&operando2=Y&operatore=OP");
+        endpoints.put("POST", "/api/v1/calcola/post");
+        endpoints.put("GET", "/api/v1/calcola/get?operando1=X&operando2=Y&operatore=OP");
+        endpoints.put("POST", "/api/v2/calcola/post");
+        endpoints.put("GET", "/api/v2/calcola/get?operando1=X&operando2=Y&operatore=OP");
+        endpoints.put("POST", "/api/v3/converte/post");
+        endpoints.put("GET", "/api/v3/converte/get?operando1=X&operando2=Y&operatore=OP");
         info.put("endpoints", endpoints);
         
         Map operatori = new HashMap<>();
@@ -106,6 +121,8 @@ public class ServerRest {
         operatori.put("potenza", "POTENZA o ^");
         operatori.put("radice quadrata", "RADICE QUADRATA");
         operatori.put("modulo", "MODULO o %");
+        operatori.put("metro", "METRO");
+        operatori.put("yardo", "YARDO");
         info.put("operatori_supportati", operatori);
         
         String jsonRisposta = gson.toJson(info);
